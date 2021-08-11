@@ -1,14 +1,16 @@
 import './ExpenseItem.css';
-
+const expenseDate = new Date(2021, 7, 28);//initialize date 
+const expenseTitle = "Car insurance";
+const expenseAmout = 294.07;
 const ExpenseItem = (props) => {
   return (
     // We can't have two HTML root element here, hence we wrap all our tags
     <div className="expense-item">
-      <div >March 28th 2021</div>
+      <div >{expenseDate.toISOString()}</div>
       <div className="expense-item__description">
-        <h2>Car Insurance</h2>
+        <h2>{expenseTitle}</h2>
       </div>
-      <div className="expense-item__price">$294.67</div>
+      <div className="expense-item__price">{expenseAmout}</div>
     </div>
   );
 };
