@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 
 const ExpenseForm = (props) => {
-    // const [enteredTitle, setEnteredTitle] = useState('');
-    // const [enteredAmount, setEnteredAmount] = useState('');
-    // const [enteredDate, setEntereDate] = useState('');
+    const [enteredTitle, setEnteredTitle] = useState('');
+    const [enteredAmount, setEnteredAmount] = useState('');
+    const [enteredDate, setEntereDate] = useState('');
 
     //here is alternative way to set useState
-    const [userInput, setUserInput]=useState({
-        enteredTitle: '',
-        enteredAmount: '',
-        enteredDate: ''
-    });
+    // const [userInput, setUserInput]=useState({
+    //     enteredTitle: '',
+    //     enteredAmount: '',
+    //     enteredDate: ''
+    // });
 
     
     const titleChangeHandler =(event)=>{
@@ -21,30 +21,35 @@ const ExpenseForm = (props) => {
       //console.log(event.target.value);
 
       //3.Picking/Storing Data from Form/Input feature
-      //setEnteredTitle(event.target.value);
+      setEnteredTitle(event.target.value);
       
       //4. Here is another approach:
-      setUserInput({
-        ...userInput,
-        enteredTitle:event.target.value,
-      })
+    //   setUserInput({
+    //     ...userInput,
+    //     enteredTitle:event.target.value,
+        //})
+
+        //5. Here is Updating State that Depends on the Previous State
+        // setUserInput((prevState) =>{
+        //     return { ...prevState, enteredTitle:event.target.value};
+        // });
     };
 
     const amountChangeHandler = (event) =>{
-        //setEnteredAmount(event.target.value);
-        setUserInput({
-            ...userInput,
-            enteredAmount:event.target.value,
-          })
+        setEnteredAmount(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredAmount:event.target.value,
+        //   })
     };
 
     const dateChangeHandler = (event) =>{
-       // setEntereDate(event.target.value);
-       setUserInput({
-        ...userInput,
-        enteredDate:event.target.value,
-      })
-    };
+       setEntereDate(event.target.value);
+    //    setUserInput({
+    //     ...userInput,
+    //     enteredDate:event.target.value,
+    //   })
+     };
 
 
   return (
