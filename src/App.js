@@ -2,6 +2,7 @@
 import './App.css';
 
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
   const expenses = [
@@ -34,8 +35,13 @@ function App() {
     // React.createElement(Expenses,{items:expenses})
   //)
   return (
-
-    <Expenses items={expenses}></Expenses>
+   <div>
+      <NewExpense/>
+      <Expenses items={expenses}></Expenses>
+      
+   </div>
+    
+    
    
   );
 }
