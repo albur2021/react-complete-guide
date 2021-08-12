@@ -5,7 +5,7 @@ import Card from '../UI/Card';
 import React, {useState} from 'react';
 
 const ExpenseItem = (props) => {
-  useState(props.title);
+  
   const [title, setTitle] = useState(props.title);
   console.log("ExpenseItem evaluated by React");
 

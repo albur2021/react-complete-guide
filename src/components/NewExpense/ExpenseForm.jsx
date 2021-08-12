@@ -62,6 +62,8 @@ const ExpenseForm = (props) => {
             date: new Date(enteredDate)
         };
         //console.log(expenseData);
+
+        //storing Data to send to NewExpense as props
         props.onSaveExpenseData(expenseData);
 
         //Updating/Empty data after data were stored
