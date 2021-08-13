@@ -23,6 +23,7 @@ const Expenses = (props) => {
 
       {props.items.map((expense)=>(
         <ExpenseItem
+          key = {expense.id}//allows React to identify unique item and prevent from overiding other 'smart/state' items
           title={expense.title}
           amount={expense.amount}
           date={expense.date}
