@@ -12,7 +12,9 @@ const Expenses = (props) => {
     // console.log("Expense.js");
     // console.log(selectedYear);
   };
-
+  const filteredExpenses = props.items.filter(expense =>{
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
   return (
     <div>
       <Card className="expenses">
@@ -21,9 +23,9 @@ const Expenses = (props) => {
       onChangeFilter={filterChangeHandler}
       />
 
-      {props.items.map((expense)=>(
+      {filteredExpenses.map((expense)=>(
         <ExpenseItem
-          key = {expense.id}//allows React to identify unique item and prevent from overiding other 'smart/state' items
+          key = {expense.id}//allows React to identify unique item and prevent from overiding other 'smart/state' itemsç
           title={expense.title}
           amount={expense.amount}
           date={expense.date}
