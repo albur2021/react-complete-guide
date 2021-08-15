@@ -4,8 +4,12 @@ import React from 'react';
 import './ExpensesFilter.css';
 
 const ExpensesFilter = (props) => {
+
 const dropdownChangeHandler = (event) =>{
     //console.log(event.target.value);
+    
+    //passing down from Parent/Expense Comp 
+    // through the props - to render/gather the Data from here/browser
     props.onChangeFilter(event.target.value);
 }
 

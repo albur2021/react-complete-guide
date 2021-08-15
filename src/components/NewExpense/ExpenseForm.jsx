@@ -21,15 +21,16 @@ const ExpenseForm = (props) => {
       //console.log(event.target.value);
 
       //3.Picking/Storing Data from Form/Input feature
-      setEnteredTitle(event.target.value);
+      setEnteredTitle(event.target.value);//that's input data, the browser gives us
       
       //4. Here is another approach:
     //   setUserInput({
-    //     ...userInput,
+    //     ...userInput,//copy others - enteredAmount, enteredDate, so don't loose them
     //     enteredTitle:event.target.value,
         //})
 
-        //5. Here is Updating State that Depends on the Previous State
+        //5. Here is the Updating State that Depends on the Previous State
+        // This approach is much safer and will guarantee that previous data is not outdated and most recent one
         // setUserInput((prevState) =>{
         //     return { ...prevState, enteredTitle:event.target.value};
         // });
@@ -46,7 +47,7 @@ const ExpenseForm = (props) => {
     const dateChangeHandler = (event) =>{
        setEntereDate(event.target.value);
     //    setUserInput({
-    //     ...userInput,
+    //     ...userInput,//copy all other v
     //     enteredDate:event.target.value,
     //   })
      };
@@ -54,20 +55,21 @@ const ExpenseForm = (props) => {
      const submitHandler = (event) =>{
         event.preventDefault();//prevent from refreshing webpage by browser
         
-        //Storing date into this object:
-        //Two-way binding state: store and change/clean data from UI
-        const expenseData = {
+        //Storing data into this object:
+       const expenseData = {
             title: enteredTitle,
             amount: enteredAmount,
             date: new Date(enteredDate)
         };
         //console.log(expenseData);
 
-        //storing Data to send to NewExpense as props
+        //passing this method here over 'props' from Parent - NewExpense Comp 
+        // to pass the object's data from expense Data as parameter to the Parent - NewExpense Comp 
+        // So now we have 2 ways of passing method from Parent Comp to be used/gather Data from Child Comp
         props.onSaveExpenseData(expenseData);
 
         //Updating/Empty data after data were stored
-        
+         //Two-way binding state: store and change/clean data from UI
         setEnteredTitle('');
         setEnteredAmount('');
         setEntereDate('');
@@ -80,7 +82,7 @@ const ExpenseForm = (props) => {
           <label>Title</label>
           <input 
           type="text" 
-          value={enteredTitle} 
+          value={enteredTitle} //two-way binding - to reset/make the input an empty again to 'setEnteredTitle(""), after the form is submitted
           onChange={titleChangeHandler}
           />
         </div>
