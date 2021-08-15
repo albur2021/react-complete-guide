@@ -9,7 +9,9 @@ const ExpenseItem = (props) => {
 
   console.log("ExpenseItem evaluated by React");
 
-  
+  // Here in this JSX - it's just shows as HTML Format 
+  // before lifting this Child Comp up to Parent
+  // all thoses data are rendered from App.js by 'props' and ExpenseDate Comp
   return (
     <Card className="expense-item">
       <ExpenseDate date={props.date}/>

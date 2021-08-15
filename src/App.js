@@ -36,6 +36,8 @@ function App() {
     // React.createElement('h2',{},"Let's get started")
     // React.createElement(Expenses,{items:expenses})
   //)
+
+  
   const addExpenseHandler = expense =>{
     // console.log('In App.js');
     // console.log(expense);
@@ -43,7 +45,9 @@ function App() {
       return [expense, ...prevExpenses];
     });
   };
-
+  // here in JSX, pass the pointer/args 'onAddExpense' with its function - 'addExpenseHandler as the value
+  // to have/be passed that new Data to be logged from here - it's called Lifting Up
+  // Lifting the state up to -> ParentComp/App.js - to keep there or passing down to other child Comps
   return (
    <div>
       <NewExpense onAddExpense = {addExpenseHandler}/>
